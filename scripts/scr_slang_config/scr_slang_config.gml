@@ -7,6 +7,8 @@
 
 #macro SLANG_REMOVE_NULL_TERMINATOR true	// When reading from a file there is an invisible character which serves no purpose inside of GM, this removes it from the final string
 
+#macro SLANG_AUTO_LOAD_FILES true	// Automatically load all .slang files from SLANG_DIRECTORY upon project start
+
 /*
 	if no text can be found in the default language, this is what gets displayed instead
 	if this is undefined, an error will be thrown instead

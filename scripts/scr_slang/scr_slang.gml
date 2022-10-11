@@ -8,19 +8,16 @@ function slang(_key, _inserts = undefined, _languageCode = global.__slang_langua
 	
 	var _insertIndex = 0;
 	var _pos = string_pos(SLANG_FILE_INSERT_PREFIX, _raw);
-	__slang_print(_raw, " | ", SLANG_FILE_INSERT_PREFIX, " | ", string_pos(SLANG_FILE_INSERT_PREFIX, _raw))
 	while ((_pos != 0) && (_pos <= string_length(_raw)))
 	{
-		__slang_print(_pos);
 		var _slashPos = (_pos - 1);
 		if (string_char_at(_raw, _slashPos) == "\\")
 		{
 			_raw = string_delete(_raw, _slashPos, 1);
-			__slang_print("ignoring ", _pos);
 		}
 		else
 		{
-			var _insert = ((_insertIndex < _totalInserts) ? string(_inserts[_insertIndex]) : "");
+			var _insert = ((_insertIndex < _totalInserts) ? string(_inserts[_insertIndex++]) : "");
 			_raw = string_delete(_raw, _pos, _insertPrefixLength);
 			_raw = string_insert(_insert, _raw, _pos);
 		}
@@ -49,12 +46,20 @@ function slang_raw(_key, _languageCode = global.__slang_language_code)
 	return _defaultLocalizer.get_text(_key);
 }
 
-function slang_set_language_code(_languageCode)
+function slang_get_language_codes()
+{
+	var _names = variable_struct_get_names(global.__slang_localizers);
+	array_sort(_names, true);
+	
+	return _names;
+}
+
+function slang_set_language(_languageCode)
 {
 	global.__slang_language_code = _languageCode;
 }
 
-function slang_get_language_code()
+function slang_get_language()
 {
 	return global.__slang_language_code;
 }

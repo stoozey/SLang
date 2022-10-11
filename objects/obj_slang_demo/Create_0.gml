@@ -4,8 +4,13 @@
 
 draw_set_font(fnt_slang_demo);
 
-languageCodeIndex = 0;
-languageCodes = [
-	"en",
-	"es",
-];
+__languageCodeIndex = 0;
+__languageCodes = slang_get_language_codes();
+
+__set_language_code = function()
+{
+	var _languageCode = __languageCodes[__languageCodeIndex];
+	slang_set_language(_languageCode);
+}
+
+__set_language_code();

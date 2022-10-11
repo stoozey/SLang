@@ -7,7 +7,7 @@ demo_text_subtitle : Use the left/right arrows to switch to different languages
 
 
 demo_text_insert_info : You can insert variables to your text by adding "%". For example:
-demo_text_insert : The current language code is: % (you can show the insert character by putting a backslash: \%)
+demo_text_insert : The current language code is: % - % / % (you can show the insert character by putting a backslash: \%)
 
 // You can have any amount of whitespace inbetween the colon.
 // All whitespace is ignored in the key, use underscores to represent spaces.

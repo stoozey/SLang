@@ -7,7 +7,7 @@ demo_text_subtitle : No se española!!!
 
 
 demo_text_insert_info : Me encanta usar el Traductor de Google
-demo_text_insert : El idioma actual es: % (me gustan mucho los bolos: \%)
+demo_text_insert : El idioma actual es: % - % / % (me gustan mucho los bolos: \%)
 
 // You can have any amount of whitespace inbetween the colon.
 // All whitespace is ignored in the key, use underscores to represent spaces.
