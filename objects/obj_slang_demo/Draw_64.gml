@@ -3,9 +3,9 @@ var _guiHeight = display_get_gui_height();
 draw_set_colour(__SLANG_DEMO_BACKGROUND_COLOUR);
 	draw_rectangle(0, 0, _guiWidth, _guiHeight, false);
 draw_set_colour(__SLANG_DEMO_TEXT_COLOUR);
+draw_set_halign(fa_center);
 	var _textX = (_guiWidth * 0.5);
 	var _textY = (_guiHeight * 0.33);
-	draw_set_halign(fa_center);
 	
 	draw_text(_textX, _textY, slang("demo_text_title"));
 	draw_text(_textX, (_textY + __SLANG_DEMO_TEXT_HEIGHT * 1), slang("demo_text_subtitle"));
