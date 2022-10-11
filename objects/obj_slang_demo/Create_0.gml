@@ -3,3 +3,9 @@
 #macro __SLANG_DEMO_BACKGROUND_COLOUR 0x491f2e
 
 draw_set_font(fnt_slang_demo);
+
+languageCodeIndex = 0;
+languageCodes = [
+	"en",
+	"es",
+];
