@@ -3,8 +3,14 @@
   "resourceVersion": "1.6",
   "name": "SLang",
   "resources": [
+    {"id":{"name":"__scr_slang_init","path":"scripts/__scr_slang_init/__scr_slang_init.yy",},"order":1,},
+    {"id":{"name":"scr_slang_config","path":"scripts/scr_slang_config/scr_slang_config.yy",},"order":2,},
+    {"id":{"name":"__scr_slang_localizer","path":"scripts/__scr_slang_localizer/__scr_slang_localizer.yy",},"order":3,},
+    {"id":{"name":"fnt_slang_demo","path":"fonts/fnt_slang_demo/fnt_slang_demo.yy",},"order":2,},
+    {"id":{"name":"__scr_slang_macros","path":"scripts/__scr_slang_macros/__scr_slang_macros.yy",},"order":0,},
     {"id":{"name":"obj_slang_demo","path":"objects/obj_slang_demo/obj_slang_demo.yy",},"order":1,},
     {"id":{"name":"scr_slang","path":"scripts/scr_slang/scr_slang.yy",},"order":0,},
+    {"id":{"name":"__scr_slang_util","path":"scripts/__scr_slang_util/__scr_slang_util.yy",},"order":2,},
     {"id":{"name":"rm_slang_demo","path":"rooms/rm_slang_demo/rm_slang_demo.yy",},"order":0,},
   ],
   "Options": [
@@ -38,7 +44,9 @@
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"en.slang","CopyToMask":-1,"filePath":"datafiles",},
+  ],
   "MetaData": {
     "IDEVersion": "2022.8.1.37",
   },

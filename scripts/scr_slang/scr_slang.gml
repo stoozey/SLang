@@ -1,101 +1,60 @@
-#macro LOCALIZATION_LANGUAGE_DEFAULT "en"
-#macro LOCALIZATION_FILE_EXT "sloz"
-#macro LOCALIZATION_DIR (DIR_RESOURCES + "lang/")
-#macro LOCALIZATION_DIR_WORKSHOP (DIR_STEAM_WORKSHOP + "lang/")
-
-global.__language = LOCALIZATION_LANGUAGE_DEFAULT;
-global.__localizers = { };
-global.__languages_with_custom_fonts = ds_list_create();
-ds_list_add(global.__languages_with_custom_fonts, "jp");
-
-function font_name(_font, _language = CONFIG.language)
+function slang(_key, _inserts = undefined, _languageCode = global.__slang_language_code)
 {
-	if (ds_list_find_index(global.__languages_with_custom_fonts, _language) == -1) _language = LOCALIZATION_LANGUAGE_DEFAULT;
-
-	return (_font + "_" + _language);
-}
-
-function font_get(_name, _language = CONFIG.language)
-{
-	return asset_get_index(font_name(_name, _language));
-}
-
-function localizer_get(_language)
-{
-	var _localizer = global.__localizers[$ _language];
-	if (!is_undefined(_localizer)) return _localizer;
+	var _raw = slang_raw(_key, _languageCode);
+	if (_inserts == undefined) return _raw;
 	
-	var _filename = (LOCALIZATION_DIR + _language + "." + LOCALIZATION_FILE_EXT);
-	if (!file_exists(_filename))
+	var _insertPrefixLength = string_length(SLANG_FILE_INSERT_PREFIX);
+	var _totalInserts = array_length(_inserts);
+	
+	var _insertIndex = 0;
+	var _pos = string_pos(SLANG_FILE_INSERT_PREFIX, _raw);
+	__slang_print(_raw, " | ", SLANG_FILE_INSERT_PREFIX, " | ", string_pos(SLANG_FILE_INSERT_PREFIX, _raw))
+	while ((_pos != 0) && (_pos <= string_length(_raw)))
 	{
-		_filename = (LOCALIZATION_DIR_WORKSHOP + _language + "." + LOCALIZATION_FILE_EXT);
-		if (!file_exists(_filename))
+		__slang_print(_pos);
+		var _slashPos = (_pos - 1);
+		if (string_char_at(_raw, _slashPos) == "\\")
 		{
-			if (_language == LOCALIZATION_LANGUAGE_DEFAULT)
-			throw ("Default language (" + _language + " @" + _filename + ") doesn't exist");
-		
-			return localizer_get(LOCALIZATION_LANGUAGE_DEFAULT);
+			_raw = string_delete(_raw, _slashPos, 1);
+			__slang_print("ignoring ", _pos);
 		}
+		else
+		{
+			var _insert = ((_insertIndex < _totalInserts) ? string(_inserts[_insertIndex]) : "");
+			_raw = string_delete(_raw, _pos, _insertPrefixLength);
+			_raw = string_insert(_insert, _raw, _pos);
+		}
+		
+		_pos = string_pos_ext(SLANG_FILE_INSERT_PREFIX, _raw, _pos);
 	}
 	
-	var _localizer = new Localizer();
-	_localizer.load(_filename);
-	global.__localizers[$ _language] = _localizer;
-	
-	return _localizer;
+	return _raw;
 }
 
-
-function gettext(_key, _language = CONFIG.language)
+function slang_raw(_key, _languageCode = global.__slang_language_code)
 {
-	var _localizer = localizer_get(_language);
+	var _localizer = __slang_localizer_get(_languageCode);
 	var _text = _localizer.get_text(_key);
-	if (!is_undefined(_text)) return _text;
+	if (_text != undefined) return _text;
 	
-	if (_language == LOCALIZATION_LANGUAGE_DEFAULT)
-		throw "Text (" + _key + ") doesn't exist";
+	if (_languageCode == SLANG_LANGUAGE_CODE_DEFAULT)
+	{
+		if (SLANG_NO_TEXT == undefined)
+			throw "Text (" + _key + ") doesn't exist";
+		
+		return SLANG_NO_TEXT;
+	}
 	
-	var _defaultLocalizer = localizer_get(LOCALIZATION_LANGUAGE_DEFAULT);
+	var _defaultLocalizer = __slang_localizer_get(SLANG_LANGUAGE_CODE_DEFAULT);
 	return _defaultLocalizer.get_text(_key);
 }
 
-function Localizer() constructor
+function slang_set_language_code(_languageCode)
 {
-	static load = function(_filename)
-	{
-		text = { };
-		
-		var _file = file_text_open_read(_filename);
-			while (!file_text_eof(_file))
-			{
-				var _text = file_text_readln(_file);
-				_text = string_replace_all(_text, "\n", "");
-				_text = string_replace_all(_text, "\\n", "\n");
-				
-				if ((_text == "") || (string_copy(_text, 1, 2) == "//")) continue;
-				
-				var _keySplitterPos = string_pos_ext(":", _text, 1);
-				var _keyLength = (_keySplitterPos - 2);
-				var _key = string_copy(_text, 1, _keyLength);
-				
-				var _messagePos = (_keySplitterPos + 2);
-				var _messageLength = (string_length(_text) - _messagePos + 1);
-				var _message = string_copy(_text, _messagePos, _messageLength);
-				
-				text[$ _key] = _message;
-			}
-		file_text_close(_file);
-	}
-	
-	static cleanup = function()
-	{
-		delete text;
-	}
-	
-	static get_text = function(_key)
-	{
-		return text[$ _key];
-	}
-	
-	text = { };
+	global.__slang_language_code = _languageCode;
+}
+
+function slang_get_language_code()
+{
+	return global.__slang_language_code;
 }
