@@ -1,6 +1,8 @@
 # SLang
 _A simple text localization system for GameMaker_
 
+### SLang is also available for download [on Itch.io](https://stoozey.itch.io/slang).
+
 Proper localization support in your projects is crucial, if left too long using plain strings it can be a real headache to get supported. The aim of SLang is to be very plug-and-play so you can focus on making your project instead of having to deal with localization code.  
 
 ### **Why use SLang?**
