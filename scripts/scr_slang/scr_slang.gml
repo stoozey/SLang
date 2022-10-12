@@ -1,3 +1,7 @@
+///@desc The same as slang_raw, but with optional variable insert support
+///@param {string} key The key used in the localization file
+///@param {array} [inserts An array of variables to be inserted (using the SLANG_FILE_INSERT_PREFIX operator)
+///@param {string} languageCode] Overrides the current active language code
 function slang(_key, _inserts = undefined, _languageCode = global.__slang_language_code)
 {
 	var _raw = slang_raw(_key, _languageCode);
@@ -28,6 +32,9 @@ function slang(_key, _inserts = undefined, _languageCode = global.__slang_langua
 	return _raw;
 }
 
+///@desc Finds a string from the .slang file by key
+///@param {string} key The key used to represent the text data in the .slang file
+///@param {string} [languageCode] Overrides the current active language code
 function slang_raw(_key, _languageCode = global.__slang_language_code)
 {
 	var _localizer = __slang_localizer_get(_languageCode);
@@ -44,22 +51,4 @@ function slang_raw(_key, _languageCode = global.__slang_language_code)
 	
 	var _defaultLocalizer = __slang_localizer_get(SLANG_LANGUAGE_CODE_DEFAULT);
 	return _defaultLocalizer.get_text(_key);
-}
-
-function slang_get_language_codes()
-{
-	var _names = variable_struct_get_names(global.__slang_localizers);
-	array_sort(_names, true);
-	
-	return _names;
-}
-
-function slang_set_language(_languageCode)
-{
-	global.__slang_language_code = _languageCode;
-}
-
-function slang_get_language()
-{
-	return global.__slang_language_code;
 }
