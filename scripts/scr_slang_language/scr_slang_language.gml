@@ -9,7 +9,7 @@ function slang_get_language_codes()
 }
 
 ///@desc Sets the currently active language code
-///@param {string} Language code
+///@param {string} languageCode Language code
 function slang_set_language(_languageCode)
 {
 	global.__slang_language_code = _languageCode;
