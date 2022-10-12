@@ -11,6 +11,6 @@ demo_text_insert : El idioma actual es: % - % / % (me gustan mucho los bolos: \%
 
 // You can have any amount of whitespace inbetween the colon.
 // All whitespace is ignored in the key, use underscores to represent spaces.
-// The first non-whitespace character after the colon is considered the start of the text data. If you need the first character to be whitespace, use a backslash
+// The first non-whitespace character after the colon is considered the start of the text data.
 demo_text_1				:				jOeSU es un mal juego!!
 demo_text_2				:				por favor no lo juegues!!!!!!!!!!!
