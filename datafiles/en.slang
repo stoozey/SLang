@@ -13,4 +13,4 @@ demo_text_insert : The current language code is: % - % / % (you can show the ins
 // All whitespace is ignored in the key, use underscores to represent spaces.
 // The first non-whitespace character after the colon is considered the start of the text data.
 demo_text_1				:				This is a demo string! Amazing!!
-demo_text_2				:				Absolutely thought-provoking dialogue!!!!!
+demo_text_2				:				Absolutely thought-provoking dialogue!!!!

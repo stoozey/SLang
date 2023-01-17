@@ -7,10 +7,9 @@ function slang(_key, _inserts = undefined, _languageCode = global.__slang_langua
 	var _raw = slang_raw(_key, _languageCode);
 	if (_inserts == undefined) return _raw;
 	
-	var _insertPrefixLength = string_length(SLANG_FILE_INSERT_PREFIX);
-	var _totalInserts = array_length(_inserts);
-	
+	var _totalInserts = array_length(_inserts);	
 	var _insertIndex = 0;
+	var _insertPrefixLength = string_length(SLANG_FILE_INSERT_PREFIX);
 	var _pos = string_pos(SLANG_FILE_INSERT_PREFIX, _raw);
 	while ((_pos != 0) && (_pos <= string_length(_raw)))
 	{
@@ -43,10 +42,10 @@ function slang_raw(_key, _languageCode = global.__slang_language_code)
 	
 	if (_languageCode == SLANG_LANGUAGE_CODE_DEFAULT)
 	{
-		if (SLANG_NO_TEXT == undefined)
+		if (SLANG_ERROR_ON_MISSING_TEXT)
 			throw "Text (" + _key + ") doesn't exist";
 		
-		return SLANG_NO_TEXT;
+		return _key;
 	}
 	
 	var _defaultLocalizer = __slang_localizer_get(SLANG_LANGUAGE_CODE_DEFAULT);
