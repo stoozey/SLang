@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_slang_language",
+  "name": "__scr_slang",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "SLang",
-    "path": "folders/SLang.yy",
+    "name": "Internal",
+    "path": "folders/SLang/Internal.yy",
   },
 }
