@@ -42,10 +42,10 @@ function slang_raw(_key, _languageCode = global.__slang_language_code)
 	
 	if (_languageCode == SLANG_LANGUAGE_CODE_DEFAULT)
 	{
-		if (SLANG_NO_TEXT == undefined)
+		if (SLANG_ERROR_ON_MISSING_TEXT)
 			throw "Text (" + _key + ") doesn't exist";
 		
-		return SLANG_NO_TEXT;
+		return _key;
 	}
 	
 	var _defaultLocalizer = __slang_localizer_get(SLANG_LANGUAGE_CODE_DEFAULT);

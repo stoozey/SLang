@@ -9,8 +9,4 @@
 
 #macro SLANG_AUTO_LOAD_FILES true				// Automatically load all .slang files from SLANG_DIRECTORY upon project start
 
-/*
-	if no text can be found in the default language, this is what gets displayed instead
-	if this is undefined, an error will be thrown instead
-*/
-#macro SLANG_NO_TEXT "MISSING TEXT"
+#macro SLANG_ERROR_ON_MISSING_TEXT false		// When text is loaded but the key doesn't have a value, throw an error (if this is false, the key will be returned)
