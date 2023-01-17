@@ -7,10 +7,9 @@ function slang(_key, _inserts = undefined, _languageCode = global.__slang_langua
 	var _raw = slang_raw(_key, _languageCode);
 	if (_inserts == undefined) return _raw;
 	
-	var _insertPrefixLength = string_length(SLANG_FILE_INSERT_PREFIX);
-	var _totalInserts = array_length(_inserts);
-	
+	var _totalInserts = array_length(_inserts);	
 	var _insertIndex = 0;
+	var _insertPrefixLength = string_length(SLANG_FILE_INSERT_PREFIX);
 	var _pos = string_pos(SLANG_FILE_INSERT_PREFIX, _raw);
 	while ((_pos != 0) && (_pos <= string_length(_raw)))
 	{
