@@ -5,7 +5,6 @@
 demo_text_title : SLang Demo - https://stoozey.itch.io/slang
 demo_text_subtitle : Use the left/right arrows to switch to different languages
 
-
 demo_text_insert_info : You can insert variables to your text by adding "%". For example:
 demo_text_insert : The current language code is: % - % / % (you can show the insert character by putting a backslash: \%)
 
