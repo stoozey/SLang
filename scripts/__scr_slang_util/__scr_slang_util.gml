@@ -8,7 +8,7 @@ function __slang_print()
         ++_i;
     }
     
-    return show_debug_message(_string);
+    show_debug_message(_string);
 }
 
 function __slang_localizer_get(_language)
