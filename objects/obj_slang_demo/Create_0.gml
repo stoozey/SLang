@@ -7,10 +7,20 @@ draw_set_font(fnt_slang_demo);
 __languageCodeIndex = 0;
 __languageCodes = slang_get_language_codes();
 
-__set_language_code = function()
+/*
+ * if the number of languages codes is 0
+ * that means on startup we must have never found any valid files (assuming SLANG_AUTO_LOAD_FILES is enabled)
+ * for simplicity sake, just throw here if that happens
+*/
+if (array_length(__languageCodes) == 0) {
+    throw "No language files loaded";
+}
+
+__set_language_code = function(_index)
 {
+    __languageCodeIndex = _index;
 	var _languageCode = __languageCodes[__languageCodeIndex];
 	slang_set_language(_languageCode);
 }
 
-__set_language_code();
+__set_language_code(0);

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__scr_slang_localizer",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Internal",
-    "path": "folders/SLang/Internal.yy",
+  "$GMScript":"v1",
+  "%Name":"__scr_slang_localizer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__scr_slang_localizer",
+  "parent":{
+    "name":"Internal",
+    "path":"folders/SLang/Internal.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

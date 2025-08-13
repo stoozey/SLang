@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_slang_config",
+  "%Name":"scr_slang_language",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_slang_config",
+  "name":"scr_slang_language",
   "parent":{
     "name":"SLang",
     "path":"folders/SLang.yy",

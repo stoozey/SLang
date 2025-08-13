@@ -42,9 +42,8 @@ function slang_raw(_key, _languageCode = global.__slang_language_code)
 	
 	if (_languageCode == SLANG_LANGUAGE_CODE_DEFAULT)
 	{
-		if (SLANG_ERROR_ON_MISSING_TEXT)
-			throw "Text (" + _key + ") doesn't exist";
-		
+		if (SLANG_ERROR_ON_MISSING_TEXT) 
+            __slang_throw($"Text ({_key}) doesn't exist");
 		return _key;
 	}
 	

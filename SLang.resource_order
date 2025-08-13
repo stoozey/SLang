@@ -1,0 +1,13 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"fnt_slang_demo","order":2,"path":"fonts/fnt_slang_demo/fnt_slang_demo.yy",},
+    {"name":"obj_slang_demo","order":1,"path":"objects/obj_slang_demo/obj_slang_demo.yy",},
+    {"name":"__scr_slang_init","order":1,"path":"scripts/__scr_slang_init/__scr_slang_init.yy",},
+    {"name":"__scr_slang_localizer","order":3,"path":"scripts/__scr_slang_localizer/__scr_slang_localizer.yy",},
+    {"name":"__scr_slang_util","order":2,"path":"scripts/__scr_slang_util/__scr_slang_util.yy",},
+    {"name":"scr_slang_config","order":1,"path":"scripts/scr_slang_config/scr_slang_config.yy",},
+    {"name":"scr_slang_language","order":3,"path":"scripts/scr_slang_language/scr_slang_language.yy",},
+    {"name":"scr_slang","order":2,"path":"scripts/scr_slang/scr_slang.yy",},
+  ],
+}

@@ -12,10 +12,6 @@ function Localizer() constructor
 				var _text = file_text_readln(_file);
 				_text = string_replace_all(_text, "\n", "");
 				_text = string_replace_all(_text, "\\n", "\n");
-				
-				if (SLANG_REMOVE_NULL_TERMINATOR)
-					_text = string_copy(_text, 1, string_length(_text) - 1);
-				
 				if ((_text == "") || (string_copy(_text, 1, _commentPrefixLength) == SLANG_FILE_COMMENT_PREFIX)) continue;
 				
 				var _keySplitterPos = string_pos_ext(SLANG_FILE_TEXT_SEPARATOR, _text, 1);
